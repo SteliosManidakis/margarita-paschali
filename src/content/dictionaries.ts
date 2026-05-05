@@ -6,7 +6,7 @@ export const dictionaries = {
     nav: {
       home: "Αρχική",
       about: "Σχετικά",
-      healing: "Healing",
+      healing: "Θεραπείες",
       contact: "Επικοινωνία",
       terms: "Όροι χρήσης",
       privacy: "Πολιτική απορρήτου",
