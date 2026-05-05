@@ -1,36 +1,195 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Margarita Paschali Website
 
-## Getting Started
+Bilingual static website for the personal brand Margarita Paschali.
 
-First, run the development server:
+Built with Next.js App Router, static localized routes, Cal.com booking links, Brevo newsletter subscription, SEO metadata, sitemap, robots, and legal pages.
+
+## Tech Stack
+
+- Next.js 16 App Router
+- React 19
+- TypeScript
+- Tailwind CSS 4
+- Vercel deployment
+- Cal.com booking
+- Brevo newsletter contacts
+
+## Local Development
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Create a local env file:
+
+```bash
+cp .env.example .env.local
+```
+
+Fill `.env.local` with the real Brevo API key.
+
+Run the dev server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```txt
+http://localhost:3000/el
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+If port 3000 is busy:
 
-## Learn More
+```bash
+npm run dev -- --port 3001
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Routes
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Default route:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```txt
+/ -> /el
+```
 
-## Deploy on Vercel
+Localized pages:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```txt
+/el
+/el/about
+/el/healing
+/el/contact
+/el/terms
+/el/privacy
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+/en
+/en/about
+/en/healing
+/en/contact
+/en/terms
+/en/privacy
+```
+
+Generated SEO endpoints:
+
+```txt
+/sitemap.xml
+/robots.txt
+```
+
+## Content
+
+Main translated content lives in:
+
+```txt
+src/content/dictionaries.ts
+```
+
+Legal content lives in:
+
+```txt
+src/content/legal.ts
+```
+
+SEO copy lives in:
+
+```txt
+src/lib/seo.ts
+```
+
+Booking URLs live in:
+
+```txt
+src/lib/booking.ts
+```
+
+## Environment Variables
+
+Required in Vercel:
+
+```txt
+NEXT_PUBLIC_SITE_URL
+NEXT_PUBLIC_CAL_DISCOVERY_URL
+NEXT_PUBLIC_CAL_HEALING_URL
+BREVO_API_KEY
+BREVO_LIST_ID
+```
+
+`BREVO_API_KEY` is secret and must never be committed.
+
+`.env.local` is ignored by git. `.env.example` is committed as documentation.
+
+## Booking
+
+Booking links currently point to:
+
+```txt
+https://cal.eu/margarita-paschali/discovery-call
+https://cal.eu/margarita-paschali/healing-appointment
+```
+
+Durations, availability, buffers, meeting location, and booking questions are managed inside Cal.com and can change without code changes.
+
+## Newsletter
+
+The footer subscribe form sends:
+
+```txt
+firstName
+lastName
+email
+```
+
+The API route is:
+
+```txt
+src/app/api/subscribe/route.ts
+```
+
+Contacts are created/updated in Brevo using:
+
+```txt
+POST /v3/contacts
+```
+
+with attributes:
+
+```txt
+FIRSTNAME
+LASTNAME
+```
+
+## Verification
+
+Run before pushing:
+
+```bash
+npm run lint
+npm run build
+```
+
+## Deployment
+
+The project is deployed on Vercel from GitHub.
+
+After changing environment variables in Vercel, trigger a redeploy.
+
+If a custom domain is added later, update:
+
+```txt
+NEXT_PUBLIC_SITE_URL
+```
+
+then redeploy so canonical URLs, Open Graph URLs, `robots.txt`, and `sitemap.xml` use the final domain.
+
+## Pre-launch Checklist
+
+- Replace placeholder copy with final brand copy.
+- Replace placeholder generated images with final photography/brand assets.
+- Review Terms and Privacy with a legal professional.
+- Add a branded favicon and dedicated Open Graph image.
+- Add analytics only if needed. If analytics or marketing cookies are added, add cookie consent before enabling them.

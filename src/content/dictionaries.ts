@@ -83,7 +83,7 @@ export const dictionaries = {
     subscribe: {
       title: "Μείνε σε επαφή",
       body:
-        "Εγγράψου για ήρεμες σημειώσεις, νέα και μελλοντικές ενημερώσεις από τη Margarita.",
+        "Εγγράψου για ήρεμες σημειώσεις, νέα και μελλοντικές ενημερώσεις από τη Μαργαρίτα.",
       firstNameLabel: "Όνομα",
       firstNamePlaceholder: "Όνομα",
       lastNameLabel: "Επίθετο",
