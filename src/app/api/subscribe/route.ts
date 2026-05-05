@@ -3,9 +3,21 @@ import { NextResponse } from "next/server";
 const BREVO_ENDPOINT = "https://api.brevo.com/v3/contacts";
 
 export async function POST(request: Request) {
-  const { email } = (await request.json().catch(() => ({}))) as { email?: string };
+  const { email, firstName, lastName } = (await request.json().catch(() => ({}))) as {
+    email?: string;
+    firstName?: string;
+    lastName?: string;
+  };
+  const cleanEmail = email?.trim();
+  const cleanFirstName = firstName?.trim();
+  const cleanLastName = lastName?.trim();
 
-  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+  if (
+    !cleanEmail ||
+    !cleanFirstName ||
+    !cleanLastName ||
+    !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cleanEmail)
+  ) {
     return NextResponse.json({ error: "Invalid email" }, { status: 400 });
   }
 
@@ -27,7 +39,11 @@ export async function POST(request: Request) {
       "api-key": apiKey,
     },
     body: JSON.stringify({
-      email,
+      email: cleanEmail,
+      attributes: {
+        FIRSTNAME: cleanFirstName,
+        LASTNAME: cleanLastName,
+      },
       listIds: [listId],
       updateEnabled: true,
     }),

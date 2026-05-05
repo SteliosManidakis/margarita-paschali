@@ -85,6 +85,10 @@ export const dictionaries = {
       title: "Μείνε σε επαφή",
       body:
         "Εγγράψου για ήρεμες σημειώσεις, νέα και μελλοντικές ενημερώσεις από τη Margarita.",
+      firstNameLabel: "Όνομα",
+      firstNamePlaceholder: "Όνομα",
+      lastNameLabel: "Επίθετο",
+      lastNamePlaceholder: "Επίθετο",
       emailLabel: "Email",
       placeholder: "you@example.com",
       button: "Subscribe",
@@ -182,6 +186,10 @@ export const dictionaries = {
       title: "Stay in touch",
       body:
         "Subscribe for quiet notes, news, and future updates from Margarita.",
+      firstNameLabel: "First name",
+      firstNamePlaceholder: "First name",
+      lastNameLabel: "Last name",
+      lastNamePlaceholder: "Last name",
       emailLabel: "Email",
       placeholder: "you@example.com",
       button: "Subscribe",
