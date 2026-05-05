@@ -133,6 +133,7 @@ export const legalContent: Record<Locale, { terms: LegalPageContent; privacy: Le
             "Όταν εγγράφεσαι στο newsletter, συλλέγουμε όνομα, επίθετο και email.",
             "Όταν κλείνεις discovery call ή healing appointment μέσω Cal.com, μπορεί να συλλεχθούν στοιχεία όπως όνομα, email, στοιχεία επικοινωνίας, ζώνη ώρας, επιλεγμένη ημερομηνία/ώρα και όσα επιπλέον στοιχεία επιλέξεις να δώσεις στη φόρμα booking.",
             "Αν σε μεταγενέστερο στάδιο ζητηθούν πληροφορίες σχετικές με υγεία, εγκυμοσύνη, φαρμακευτική αγωγή ή άλλη ευαίσθητη πληροφορία για την καταλληλότητα ή ασφαλή διεξαγωγή συνεδρίας, αυτές θα χρησιμοποιούνται μόνο για τον σχετικό σκοπό και, όπου απαιτείται, με ρητή συγκατάθεση.",
+            "Μπορεί να χρησιμοποιείται εκτιμώμενη χώρα από το αίτημα πρόσβασης στο website, μέσω της πλατφόρμας φιλοξενίας, για την εμφάνιση τιμής ανά τοποθεσία. Η χώρα αυτή χρησιμοποιείται για την εμφάνιση της τιμής και δεν αποθηκεύεται από το website.",
             "Το website φιλοξενείται στη Vercel, η οποία μπορεί να επεξεργάζεται τεχνικά δεδομένα που είναι απαραίτητα για τη λειτουργία, ασφάλεια και απόδοση του website.",
           ],
         },
@@ -141,6 +142,7 @@ export const legalContent: Record<Locale, { terms: LegalPageContent; privacy: Le
           body: [
             "Χρησιμοποιούμε τα στοιχεία newsletter για να σου στέλνουμε ενημερώσεις, νέα ή άλλο σχετικό περιεχόμενο. Η νομική βάση είναι η συγκατάθεσή σου.",
             "Χρησιμοποιούμε booking δεδομένα για να οργανώνουμε discovery calls και συνεδρίες. Η νομική βάση είναι η λήψη μέτρων πριν από πιθανή παροχή υπηρεσίας ή η εκτέλεση συμφωνίας.",
+            "Χρησιμοποιούμε εκτιμώμενη χώρα για να εμφανίζουμε τιμή με βάση την τοποθεσία. Η νομική βάση είναι το έννομο συμφέρον να παρουσιάζεται σχετική πληροφορία τιμολόγησης στους επισκέπτες.",
             "Χρησιμοποιούμε τεχνικά δεδομένα για τη λειτουργία και ασφάλεια του website, βάσει έννομου συμφέροντος.",
           ],
         },
@@ -327,6 +329,7 @@ export const legalContent: Record<Locale, { terms: LegalPageContent; privacy: Le
             "When you subscribe to the newsletter, we collect first name, last name and email address.",
             "When you book a discovery call or healing appointment through Cal.com, information such as your name, email address, contact details, time zone, selected date/time and any additional information you choose to provide in the booking form may be collected.",
             "If at a later stage health-related information, pregnancy information, medication information or other sensitive information is requested for suitability or safe session delivery, it will be used only for that purpose and, where required, with explicit consent.",
+            "Approximate country information from the website request, provided by the hosting platform, may be used to display location-based pricing. This country information is used to show the price and is not stored by the website.",
             "The website is hosted on Vercel, which may process technical data necessary for website operation, security and performance.",
           ],
         },
@@ -335,6 +338,7 @@ export const legalContent: Record<Locale, { terms: LegalPageContent; privacy: Le
           body: [
             "We use newsletter details to send updates, news or related content. The legal basis is your consent.",
             "We use booking data to arrange discovery calls and sessions. The legal basis is taking steps before a possible service or performing an agreement.",
+            "We use approximate country information to display location-based pricing. The legal basis is legitimate interest in presenting relevant pricing information to visitors.",
             "We use technical data for website operation and security based on legitimate interest.",
           ],
         },

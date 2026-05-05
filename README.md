@@ -134,6 +134,28 @@ https://cal.eu/margarita-paschali/healing-appointment
 
 Durations, availability, buffers, meeting location, and booking questions are managed inside Cal.com and can change without code changes.
 
+## Location-based Pricing
+
+Healing page pricing is selected server-side from the visitor's estimated country on Vercel.
+
+Pricing config lives in:
+
+```txt
+src/content/pricing.ts
+```
+
+Current rules:
+
+```txt
+Greece: 50 EUR
+United States: 90 USD
+United Kingdom: 80 GBP
+European Union except Greece: 60 EUR
+Rest of world: 80 USD
+```
+
+The website does not store the visitor's country or IP. It only uses the request country header to choose which price to render.
+
 ## Newsletter
 
 The footer subscribe form sends:

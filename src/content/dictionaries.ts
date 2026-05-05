@@ -71,6 +71,8 @@ export const dictionaries = {
       pricingTitle: "Τιμή",
       pricingBody:
         "Η συνεδρία γίνεται χωρίς online πληρωμή σε αυτό το στάδιο. Το booking απλώς κρατάει την ώρα σου.",
+      pricingLocationNote:
+        "Η τιμή εμφανίζεται με βάση την εκτιμώμενη τοποθεσία σου.",
     },
     contact: {
       title: "Επικοινωνία",
@@ -173,6 +175,8 @@ export const dictionaries = {
       pricingTitle: "Pricing",
       pricingBody:
         "There is no online payment at this stage. Booking simply reserves your time.",
+      pricingLocationNote:
+        "The price is shown based on your estimated location.",
     },
     contact: {
       title: "Contact",

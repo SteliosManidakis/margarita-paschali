@@ -4,7 +4,8 @@ import { BookingPanel } from "@/components/sections/BookingPanel";
 import { Container } from "@/components/ui/Container";
 import { getDictionary } from "@/content/dictionaries";
 import { bookingLinks } from "@/lib/booking";
-import { isLocale } from "@/lib/i18n";
+import { isLocale, type Locale } from "@/lib/i18n";
+import { getLocationPrice } from "@/lib/pricing";
 import { getSeoMetadata } from "@/lib/seo";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -14,8 +15,10 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 }
 
 export default async function HealingPage({ params }: { params: Promise<{ locale: string }> }) {
-  const { locale } = await params;
-  const dictionary = getDictionary(isLocale(locale) ? locale : "el");
+  const { locale: rawLocale } = await params;
+  const locale = (isLocale(rawLocale) ? rawLocale : "el") as Locale;
+  const dictionary = getDictionary(locale);
+  const price = await getLocationPrice(locale);
 
   return (
     <>
@@ -60,8 +63,11 @@ export default async function HealingPage({ params }: { params: Promise<{ locale
             <p className="text-sm font-semibold uppercase tracking-[0.18em] text-olive">
               {dictionary.healing.pricingTitle}
             </p>
-            <p className="mt-4 font-serif text-5xl leading-none text-charcoal sm:text-6xl">{dictionary.common.price}</p>
+            <p className="mt-4 font-serif text-5xl leading-none text-charcoal sm:text-6xl">{price.formatted}</p>
             <p className="mt-2 text-charcoal/65">{dictionary.common.perSession}</p>
+            <p className="mt-4 max-w-xs text-sm leading-6 text-charcoal/60">
+              {dictionary.healing.pricingLocationNote} {price.label}.
+            </p>
           </div>
           <BookingPanel
             title={dictionary.common.bookHealing}
