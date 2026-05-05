@@ -4,6 +4,7 @@ import { IntroSection } from "@/components/sections/IntroSection";
 import { PreviewSections } from "@/components/sections/PreviewSections";
 import { getDictionary } from "@/content/dictionaries";
 import { isLocale, type Locale } from "@/lib/i18n";
+import { getSeoMetadata } from "@/lib/seo";
 
 export async function generateMetadata({
   params,
@@ -12,16 +13,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const safeLocale = isLocale(locale) ? locale : "el";
-  const dictionary = getDictionary(safeLocale);
-
-  return {
-    title: dictionary.seo.homeTitle,
-    description: dictionary.seo.homeDescription,
-    alternates: {
-      canonical: `/${safeLocale}`,
-      languages: { el: "/el", en: "/en" },
-    },
-  };
+  return getSeoMetadata(safeLocale, "");
 }
 
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {

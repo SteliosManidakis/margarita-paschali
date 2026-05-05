@@ -1,25 +1,21 @@
 import type { Metadata } from "next";
-import { Container } from "@/components/ui/Container";
+import { LegalPage } from "@/components/sections/LegalPage";
 import { getDictionary } from "@/content/dictionaries";
+import { getLegalContent } from "@/content/legal";
 import { isLocale } from "@/lib/i18n";
+import { getSeoMetadata } from "@/lib/seo";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const safeLocale = isLocale(locale) ? locale : "el";
-  const dictionary = getDictionary(safeLocale);
-  return { title: dictionary.seo.privacyTitle };
+  return getSeoMetadata(safeLocale, "privacy");
 }
 
 export default async function PrivacyPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
-  const dictionary = getDictionary(isLocale(locale) ? locale : "el");
+  const safeLocale = isLocale(locale) ? locale : "el";
+  const dictionary = getDictionary(safeLocale);
+  const legal = getLegalContent(safeLocale);
 
-  return (
-    <section className="bg-ivory py-16 sm:py-24">
-      <Container className="max-w-3xl">
-        <h1 className="font-serif text-5xl text-charcoal">{dictionary.nav.privacy}</h1>
-        <p className="mt-8 text-lg leading-8 text-charcoal/72">{dictionary.legal.privacy}</p>
-      </Container>
-    </section>
-  );
+  return <LegalPage title={dictionary.nav.privacy} content={legal.privacy} />;
 }

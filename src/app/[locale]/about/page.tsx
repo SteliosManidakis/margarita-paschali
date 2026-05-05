@@ -5,19 +5,12 @@ import { Container } from "@/components/ui/Container";
 import { getDictionary } from "@/content/dictionaries";
 import { isLocale, type Locale } from "@/lib/i18n";
 import { localizedPath } from "@/lib/routes";
+import { getSeoMetadata } from "@/lib/seo";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const safeLocale = isLocale(locale) ? locale : "el";
-  const dictionary = getDictionary(safeLocale);
-  return {
-    title: dictionary.seo.aboutTitle,
-    description: dictionary.about.body,
-    alternates: {
-      canonical: `/${safeLocale}/about`,
-      languages: { el: "/el/about", en: "/en/about" },
-    },
-  };
+  return getSeoMetadata(safeLocale, "about");
 }
 
 export default async function AboutPage({ params }: { params: Promise<{ locale: string }> }) {

@@ -4,19 +4,12 @@ import { Container } from "@/components/ui/Container";
 import { getDictionary } from "@/content/dictionaries";
 import { bookingLinks } from "@/lib/booking";
 import { isLocale } from "@/lib/i18n";
+import { getSeoMetadata } from "@/lib/seo";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const safeLocale = isLocale(locale) ? locale : "el";
-  const dictionary = getDictionary(safeLocale);
-  return {
-    title: dictionary.seo.contactTitle,
-    description: dictionary.contact.body,
-    alternates: {
-      canonical: `/${safeLocale}/contact`,
-      languages: { el: "/el/contact", en: "/en/contact" },
-    },
-  };
+  return getSeoMetadata(safeLocale, "contact");
 }
 
 export default async function ContactPage({ params }: { params: Promise<{ locale: string }> }) {
