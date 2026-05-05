@@ -14,7 +14,7 @@ export const dictionaries = {
     common: {
       brand: "Μαργαρίτα Πασχάλη",
       switchLanguage: "EN",
-      bookDiscovery: "Κλείσε Discovery Call",
+      bookDiscovery: "Κλείσε ραντεβού γνωριμίας",
       bookHealing: "Κλείσε θεραπεία",
       learnMore: "Μάθε περισσότερα",
       price: "100€",

@@ -29,7 +29,7 @@ const seoCopy: Record<Locale, Record<SeoRoute, SeoCopy>> = {
     contact: {
       title: "Επικοινωνία & Discovery Call",
       description:
-        "Κλείσε ένα Discovery Call με τη Μαργαρίτα ή ξεκίνησε την επικοινωνία για online και δια ζώσης healing συνεδρίες.",
+        "Κλείσε ένα ραντεβού γνωριμίας Call με τη Μαργαρίτα ή ξεκίνησε την επικοινωνία για online και δια ζώσης healing συνεδρίες.",
     },
     terms: {
       title: "Όροι Χρήσης",
