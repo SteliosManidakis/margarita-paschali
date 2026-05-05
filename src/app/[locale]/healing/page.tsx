@@ -19,20 +19,20 @@ export default async function HealingPage({ params }: { params: Promise<{ locale
 
   return (
     <>
-      <section className="bg-ivory py-16 sm:py-24">
+      <section className="bg-ivory py-14 sm:py-20 lg:py-24">
         <Container className="grid gap-12 md:grid-cols-[1fr_1fr] md:items-center">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-olive">
+            <p className="text-sm font-semibold uppercase leading-relaxed tracking-[0.14em] text-olive sm:tracking-[0.18em]">
               {dictionary.common.brand}
             </p>
-            <h1 className="mt-5 font-serif text-5xl leading-tight text-charcoal sm:text-6xl">
+            <h1 className="mt-5 text-wrap font-serif text-4xl leading-tight text-charcoal sm:text-5xl lg:text-6xl">
               {dictionary.healing.title}
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-charcoal/72">
+            <p className="mt-6 max-w-2xl text-base leading-8 text-charcoal/72 sm:text-lg">
               {dictionary.healing.body}
             </p>
           </div>
-          <div className="overflow-hidden rounded-bl-[6rem]">
+          <div className="overflow-hidden rounded-bl-[3rem] sm:rounded-bl-[6rem]">
             <Image
               src="/images/placeholders/healing.png"
               alt=""
@@ -44,23 +44,23 @@ export default async function HealingPage({ params }: { params: Promise<{ locale
           </div>
         </Container>
       </section>
-      <section className="bg-sage/20 py-16 sm:py-20">
+      <section className="bg-sage/20 py-14 sm:py-20">
         <Container className="grid gap-6 md:grid-cols-2">
           {dictionary.healing.sections.map((section) => (
             <article className="border-t border-olive/30 pt-6" key={section.title}>
-              <h2 className="font-serif text-3xl text-charcoal">{section.title}</h2>
+              <h2 className="text-wrap font-serif text-2xl leading-tight text-charcoal sm:text-3xl">{section.title}</h2>
               <p className="mt-4 text-base leading-7 text-charcoal/72">{section.body}</p>
             </article>
           ))}
         </Container>
       </section>
-      <section className="bg-ivory py-16 sm:py-24">
+      <section className="bg-ivory py-14 sm:py-20 lg:py-24">
         <Container className="grid gap-8 md:grid-cols-[0.8fr_1.2fr]">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.18em] text-olive">
               {dictionary.healing.pricingTitle}
             </p>
-            <p className="mt-4 font-serif text-6xl text-charcoal">{dictionary.common.price}</p>
+            <p className="mt-4 font-serif text-5xl leading-none text-charcoal sm:text-6xl">{dictionary.common.price}</p>
             <p className="mt-2 text-charcoal/65">{dictionary.common.perSession}</p>
           </div>
           <BookingPanel

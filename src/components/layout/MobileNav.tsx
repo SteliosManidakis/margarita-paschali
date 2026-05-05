@@ -20,18 +20,18 @@ export function MobileNav({
     <div className="md:hidden">
       <button
         type="button"
-        className="inline-flex min-h-11 items-center justify-center rounded-full border border-olive/30 px-4 text-sm font-semibold uppercase tracking-[0.1em] text-olive"
+        className="inline-flex min-h-11 min-w-20 items-center justify-center rounded-full border border-olive/30 px-4 text-sm font-semibold uppercase tracking-[0.1em] text-olive"
         aria-expanded={open}
         aria-controls="mobile-navigation"
         onClick={() => setOpen((current) => !current)}
       >
-        Menu
+        {open ? "Close" : "Menu"}
       </button>
 
       {open ? (
         <div
           id="mobile-navigation"
-          className="absolute inset-x-0 top-full border-b border-olive/10 bg-ivory px-5 py-5 shadow-[0_18px_40px_rgba(41,37,31,0.08)]"
+          className="absolute inset-x-0 top-full max-h-[calc(100svh-5rem)] overflow-y-auto border-b border-olive/10 bg-ivory px-5 py-5 shadow-[0_18px_40px_rgba(41,37,31,0.08)]"
         >
           <nav className="mx-auto flex w-full max-w-6xl flex-col gap-2" aria-label="Mobile navigation">
             {navRoutes.map((route) => (

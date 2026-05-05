@@ -18,16 +18,16 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
 
   return (
     <>
-      <section className="bg-ivory py-16 sm:py-24">
+      <section className="bg-ivory py-14 sm:py-20 lg:py-24">
         <Container>
           <div className="max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-olive">
+            <p className="text-sm font-semibold uppercase leading-relaxed tracking-[0.14em] text-olive sm:tracking-[0.18em]">
               {dictionary.common.brand}
             </p>
-            <h1 className="mt-5 font-serif text-5xl leading-tight text-charcoal sm:text-6xl">
+            <h1 className="mt-5 text-wrap font-serif text-4xl leading-tight text-charcoal sm:text-5xl lg:text-6xl">
               {dictionary.contact.title}
             </h1>
-            <p className="mt-6 text-lg leading-8 text-charcoal/72">{dictionary.contact.body}</p>
+            <p className="mt-6 text-base leading-8 text-charcoal/72 sm:text-lg">{dictionary.contact.body}</p>
           </div>
           <div className="mt-12">
             <BookingPanel

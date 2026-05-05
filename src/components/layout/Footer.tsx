@@ -7,10 +7,10 @@ import { localizedPath } from "@/lib/routes";
 export function Footer({ locale, dictionary }: { locale: Locale; dictionary: Dictionary }) {
   return (
     <footer className="border-t border-ivory/10 bg-charcoal text-ivory">
-      <div className="mx-auto grid w-full max-w-6xl gap-10 px-5 py-12 sm:px-8 md:grid-cols-[1.2fr_0.8fr] lg:px-10">
+      <div className="mx-auto grid w-full max-w-6xl gap-10 px-5 py-12 sm:px-8 lg:grid-cols-[1fr_1fr] lg:px-10">
         <div>
           <p className="font-serif text-3xl leading-tight">{dictionary.common.brand}</p>
-          <p className="mt-4 max-w-md text-base leading-7 text-ivory/70">{dictionary.subscribe.body}</p>
+          <p className="mt-4 max-w-xl text-base leading-7 text-ivory/70">{dictionary.subscribe.body}</p>
         </div>
         <div className="[&_button]:bg-clay [&_button]:text-charcoal [&_button:hover]:bg-ivory [&_input]:bg-ivory [&_input]:text-charcoal [&_p]:text-clay">
           <SubscribeForm copy={dictionary.subscribe} />

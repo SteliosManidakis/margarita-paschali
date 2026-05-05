@@ -42,7 +42,7 @@ export function SubscribeForm({ copy }: { copy: SubscribeCopy }) {
 
   return (
     <form className="space-y-3" onSubmit={onSubmit}>
-      <p className="text-sm font-semibold uppercase tracking-[0.12em] text-olive">
+      <p className="text-sm font-semibold uppercase leading-relaxed tracking-[0.1em] text-olive sm:tracking-[0.12em]">
         {copy.title}
       </p>
       <div className="grid gap-3 sm:grid-cols-2">
